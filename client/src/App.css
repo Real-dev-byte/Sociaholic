@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+html, body {
+  overflow-x: hidden;
+  margin: 0px;
+  padding: 0px;
+}
 
 a{
   color: black !important;
@@ -56,3 +61,4 @@ a{
 .collection-item{
   width: 100%;
 }
+

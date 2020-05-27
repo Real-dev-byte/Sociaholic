@@ -22,7 +22,40 @@ const NavBar = ()=>{
                 <li key="3" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link to="/create">Create Post</Link></li>,
                 <li key="4" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link to="/myfollowingpost">My Following posts</Link></li>,
                 <li key="5"><button className="btn #d32f2f red darken-2" 
-                style={{marginLeft:"20px"}}
+                style={{marginLeft:"30px",marginRight:"30px"}}
+                onClick={()=>{
+                    localStorage.clear()
+                    dispatch({type:"CLEAR"})
+                    history.push('/signin')
+                    M.Sidenav.init(mobilemode.current).close();
+                }}>Logout
+                </button></li> 
+            ]
+        }else{
+            return [
+                <li key="6" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link to="/signin">Login</Link></li>,
+                <li key="7" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link to="/signup">Signup</Link></li>
+            ]
+        }
+    }
+    const renderSideList = ()=>{
+        if(state){
+            return [
+                <li><div class="user-view">
+                <div class="background">
+                  <img src="https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"/>
+                </div>
+                <img class="circle" src={state.pic}/>
+                <span class="white-text name">{state.name}</span>
+                <span class="white-text email">{state.email}</span>
+              </div></li>,
+                <li key="1" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link className="modal-trigger" style={{color:"black"}} data-target="modal1">Search</Link></li>,
+                <li key="2" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link to="/profile">Profile</Link></li>,
+                <li key="3" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link to="/create">Create Post</Link></li>,
+                <li key="4" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link to="/myfollowingpost">My Following posts</Link></li>,
+                <li><div class="divider"></div></li>,
+                <li key="5"><button className="btn #d32f2f red darken-2" 
+                style={{marginLeft:"30px",marginRight:"30px"}}
                 onClick={()=>{
                     localStorage.clear()
                     dispatch({type:"CLEAR"})
@@ -58,9 +91,9 @@ const NavBar = ()=>{
     return(
         <>
         <nav>
-            <div className="nav-wrapper white">
+            <div className="nav-wrapper white" >
             <Link to={state?"/":"/signin"} className="brand-logo left">Instagram</Link>
-            <a href="#" data-target="slide-out" class="sidenav-trigger" style={{float:"right"}}><i class="material-icons">menu</i></a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger" style={{float:"right"}} ><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
                 {renderList()}
             </ul>
@@ -89,7 +122,7 @@ const NavBar = ()=>{
             </div>
         </nav>
           <ul id="slide-out" class="sidenav" ref={mobilemode}>
-                {renderList()}
+                {renderSideList()}
           </ul>
         </>
     )
