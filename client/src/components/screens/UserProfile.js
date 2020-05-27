@@ -2,23 +2,32 @@ import React,{useState,useEffect,useContext} from 'react'
 import {UserContext} from '../../App'
 import {useParams} from 'react-router-dom'
 const Profile = ()=>{
-    const {state,dispatch}=useContext(UserContext)
+    const {state,loading,dispatch}=useContext(UserContext)
     const [userProfile,setProfile]=useState(null)
     const {userid}=useParams()
     const [showFollow,setshowFollow]=useState(state?!state.following.includes(userid):true)
-    
     // 
     useEffect(()=>{
-        fetch(`/user/${userid}`,{
+     if(!loading){
+         ((state==null)?console.log("loading"):
+         fetch(`/user/${userid}`,{
             headers:{
                 "Authorization":"Bearer "+localStorage.getItem("jwt")
             }
         }).then(res=>res.json())
         .then(result=>{
-            console.log(result)
-            setProfile(result)
+            if(state.following.includes(userid)){
+                setshowFollow(false)
+            }
+            else{
+                setshowFollow(true)
+            }
+            setProfile(result)    
         })
-    },[])
+        )
+     }
+    }
+    ,[loading,state])
 
     const followUser = ()=>{
         fetch('/follow',{
@@ -80,8 +89,9 @@ const Profile = ()=>{
     }
 
     return(
+
         <>
-        {userProfile? 
+        {state&&userProfile? 
                 <div style={{maxWidth:"550px",margin:"0px auto"}}>
                 <div style={{
                     display:"flex",
@@ -124,7 +134,8 @@ const Profile = ()=>{
             </div> 
         :<h2>loading ...</h2>}
   
-        </>   
+        </>  
+
     )
 }
 
