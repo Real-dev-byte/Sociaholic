@@ -49,7 +49,7 @@ router.put('/follow',requireLogin,(req,res)=>{
 })
 
 router.put('/unfollow',requireLogin,(req,res)=>{
-    User.findOneAndUpdate(req.body.unfollowId,{
+    User.findByIdAndUpdate(req.body.unfollowId,{
         $pull:{followers:req.user._id}
     },
     {
@@ -58,6 +58,7 @@ router.put('/unfollow',requireLogin,(req,res)=>{
         if(err){
             return res.status(422).json({error:err})
         }
+        console.log(result)
         User.findByIdAndUpdate(req.user._id,{
             $pull:{following:req.body.unfollowId}
         },{new:true})
