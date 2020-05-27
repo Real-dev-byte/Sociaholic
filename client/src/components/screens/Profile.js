@@ -58,7 +58,7 @@ const Profile = ()=>{
     }
     return(
         <div style={{maxWidth:"550px",margin:"0px auto"}}>
-            <div style={{margin:"18px 0px",
+            <div style={{margin:"5px 0px 0px 0px",
                 borderBottom:"1px solid grey"}}>
             <div style={{
                 display:"flex",
@@ -71,12 +71,7 @@ const Profile = ()=>{
                 </div>
                 <div>
                     <h4>{state?state.name:"loading"}</h4>
-                    <h5>{state?state.email:"loading"}</h5>
-                    <div style={{display:"flex",justifyContent:"space-between",width:"108%"}}>
-                        <h6>{mypics.length} posts</h6>
-                        <h6>{ state?state.followers.length :"0" } followers</h6>
-                        <h6>{ state?state.following.length :"0" } following</h6>
-                    </div>    
+                    <h5>{state?state.email:"loading"}</h5>   
                 </div>
             </div>
             <div className="file-field input-field" style={{margin:"10px"}}>
@@ -89,6 +84,16 @@ const Profile = ()=>{
                 </div>
                </div>   
             </div>
+            <div style={{
+                    display:"flex",
+                    justifyContent:"space-around",
+                    margin:"5px 5px",
+                    borderBottom:"1px solid grey"
+                }}>
+                            <h6><div style={{position:"relative",left:"15px"}}>{mypics.length}</div> posts</h6>
+                            <h6><div style={{position:"relative",left:"15px"}}>{ state?state.followers.length :"0" }</div> followers</h6>
+                            <h6><div style={{position:"relative",left:"15px"}}>{ state?state.following.length :"0" } </div> following</h6>
+                </div>
             <div className="gallery">
                 {
                     mypics.map(item=>{

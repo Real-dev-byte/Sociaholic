@@ -97,7 +97,7 @@ const Profile = ()=>{
                 <div style={{
                     display:"flex",
                     justifyContent:"space-around",
-                    margin:"18px 0px",
+                    margin:"5px 0px 0px 0px",
                     borderBottom:"1px solid grey"
                 }}>
                     <div>
@@ -108,11 +108,6 @@ const Profile = ()=>{
                     <div>
                         <h4>{userProfile.user.name}</h4>
                         <h5>{userProfile.user.email}</h5>
-                        <div style={{display:"flex",justifyContent:"space-between",width:"108%"}}>
-                            <h6>{userProfile.posts.length} posts</h6>
-                            <h6>{userProfile.user.followers.length} followers</h6>
-                            <h6>{userProfile.user.following.length} following</h6>
-                        </div>
                         {showFollow?
                         <button style={{margin:"10px"}} className="btn waves-effect waves-light #64b5f6 blue darken-1" onClick={()=>followUser()}>Follow
                         </button> 
@@ -121,6 +116,16 @@ const Profile = ()=>{
                         </button> 
                         }
                     </div>
+                </div>
+                <div style={{
+                    display:"flex",
+                    justifyContent:"space-around",
+                    margin:"5px 5px",
+                    borderBottom:"1px solid grey"
+                }}>
+                            <h6><div style={{position:"relative",left:"15px"}}>{userProfile.posts.length}</div> posts</h6>
+                            <h6><div style={{position:"relative",left:"15px"}}>{userProfile.user.followers.length}</div> followers</h6>
+                            <h6><div style={{position:"relative",left:"15px"}}>{userProfile.user.following.length}</div> following</h6>
                 </div>
                 <div className="gallery">
                     {
