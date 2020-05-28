@@ -146,7 +146,12 @@ const Home = ()=>{
                             && <i className="material-icons right" 
                                         onClick={()=>{deletePost(item._id)}}>delete</i>}</h5>
                             <div className="card-image">
-                                <img src={item.photo}/>
+                            {item.likes.includes(state._id)
+                                ?
+                                <img src={item.photo} onDoubleClick={()=>unlikePost(item._id)}/>
+                                :
+                                <img src={item.photo} onDoubleClick={()=>likePost(item._id)}/>
+                            }
                             </div>
                             <div className="card-content">
                                 <i className="material-icons" style={{color:"red"}}>favorite</i>

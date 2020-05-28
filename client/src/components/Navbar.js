@@ -49,10 +49,10 @@ const NavBar = ()=>{
                 <span class="white-text name">{state.name}</span>
                 <span class="white-text email">{state.email}</span>
               </div></li>,
-                <li key="1" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link className="modal-trigger" style={{color:"black"}} data-target="modal1">Search</Link></li>,
-                <li key="2" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link to="/profile">Profile</Link></li>,
-                <li key="3" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link to="/create">Create Post</Link></li>,
-                <li key="4" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link to="/myfollowingpost">My Following posts</Link></li>,
+                <li key="1" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link className="modal-trigger" style={{color:"black"}} data-target="modal1"><i class="material-icons">search</i>Search</Link></li>,
+                <li key="2" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link to="/profile"><i class="material-icons">person</i>Profile</Link></li>,
+                <li key="3" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link to="/create"><i class="material-icons">panorama</i>Create Post</Link></li>,
+                <li key="4" onClick={()=>{M.Sidenav.init(mobilemode.current).close();}}><Link to="/myfollowingpost"><i class="material-icons">collections_bookmark</i>My Following posts</Link></li>,
                 <li><div class="divider"></div></li>,
                 <li key="5"><button className="btn #d32f2f red darken-2" 
                 style={{marginLeft:"30px",marginRight:"30px"}}
