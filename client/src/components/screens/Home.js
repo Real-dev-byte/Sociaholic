@@ -73,7 +73,7 @@ const Home = ()=>{
             console.log(err);
         })
     }
-
+    //makeComment
     const makeComment = (text,postId) =>{
         fetch('/comment',{
             method:"put",
@@ -136,6 +136,7 @@ const Home = ()=>{
                 }
                 
             })
+
             setData(newData)
         })
     }
