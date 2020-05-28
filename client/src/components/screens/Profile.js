@@ -71,7 +71,7 @@ const Profile = ()=>{
                 </div>
                 <div>
                     <h4>{state?state.name:"loading"}</h4>
-                    <h5>{state?state.email:"loading"}</h5>   
+                    <h6>{state?state.email:"loading"}</h6>   
                 </div>
             </div>
             <div className="file-field input-field" style={{margin:"10px"}}>
@@ -87,7 +87,7 @@ const Profile = ()=>{
             <div style={{
                     display:"flex",
                     justifyContent:"space-around",
-                    margin:"5px 5px",
+                    margin:"5px 0px 5px 0px",
                     borderBottom:"1px solid grey"
                 }}>
                             <h6><div style={{position:"relative",left:"15px"}}>{mypics.length}</div> posts</h6>

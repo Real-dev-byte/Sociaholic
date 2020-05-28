@@ -107,7 +107,7 @@ const Profile = ()=>{
                     </div>
                     <div>
                         <h4>{userProfile.user.name}</h4>
-                        <h5>{userProfile.user.email}</h5>
+                        <h6>{userProfile.user.email}</h6>
                         {showFollow?
                         <button style={{margin:"10px"}} className="btn waves-effect waves-light #64b5f6 blue darken-1" onClick={()=>followUser()}>Follow
                         </button> 
@@ -120,7 +120,7 @@ const Profile = ()=>{
                 <div style={{
                     display:"flex",
                     justifyContent:"space-around",
-                    margin:"5px 5px",
+                    margin:"5px 0px 5px 0px",
                     borderBottom:"1px solid grey"
                 }}>
                             <h6><div style={{position:"relative",left:"15px"}}>{userProfile.posts.length}</div> posts</h6>

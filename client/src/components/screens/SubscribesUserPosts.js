@@ -115,6 +115,27 @@ const Home = ()=>{
             setData(newData)
         })
     }
+    const deleteComment = (postId,commentId) =>{
+        fetch(`/deletecomment/${postId}/${commentId}`,{
+            method:"put",
+            headers:{
+                "Authorization":"Bearer "+localStorage.getItem("jwt")
+            }
+        })
+        .then(res=>res.json())
+        .then(result=>{
+            const newData=data.map(item=>{
+                if(item._id == postId){
+                    return result
+                }
+                else{
+                    return item
+                }
+                
+            })
+            setData(newData)
+        })
+    }
     return(
         <div className="home">
             {
@@ -144,7 +165,9 @@ const Home = ()=>{
                                 <p>{item.body}</p>
                                 {
                                     item.comments.map(record=>{
-                                    return <h6 key={record._id}><span style={{fontWeight:"500"}}>{record.postedBy.name}</span> {record.text}</h6>
+                                    return <h6 key={record._id}><Link to={record.postedBy._id!==state._id?`/profile/${record.postedBy._id}`:'/profile'}><span style={{fontWeight:"500"}}>{record.postedBy.name}</span></Link> {record.text} {state._id == record.postedBy._id 
+                                        && <i className="material-icons right" 
+                                                    onClick={()=>{deleteComment(item._id,record._id)}}>delete</i>}</h6>
                                     })
                                 }
                                 <form onSubmit={(e)=>{
