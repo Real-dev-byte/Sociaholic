@@ -145,9 +145,10 @@ const Home = ()=>{
                 data.map(item=>{
                     return(
                         <div className="card home-card" key={item._id}>
-                            <h5 style={{padding:"5px"}}><Link to={(state._id != item.postedBy._id) ? "/profile/"+item.postedBy._id:"/profile"}><p style={{margin:"0px"}}><img src={item.postedBy.pic} style={{borderRadius:"50%",height:"30px",width:"30px",verticalAlign:"middle",marginRight:"5px"}}/>{item.postedBy.name}</p></Link> {state._id == item.postedBy._id 
-                             &&<i className="material-icons right" 
-                                        onClick={()=>{deletePost(item._id)}}>delete</i>}</h5>
+                            <h5 style={{padding:"5px"}}><p style={{margin:"0px"}}><Link to={(state._id != item.postedBy._id) ? "/profile/"+item.postedBy._id:"/profile"}>
+                                <img src={item.postedBy.pic} style={{borderRadius:"50%",height:"30px",width:"30px",verticalAlign:"middle",marginRight:"5px"}}/>{item.postedBy.name}</Link> {state._id == item.postedBy._id 
+                             &&<i className="material-icons right"
+                                        onClick={()=>{deletePost(item._id)}}>delete</i>}</p></h5>
                             <div className="card-image">
                             {item.likes.includes(state._id)
                                 ?
