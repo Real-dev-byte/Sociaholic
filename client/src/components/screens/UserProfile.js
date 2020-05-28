@@ -101,7 +101,7 @@ const Profile = ()=>{
                     borderBottom:"1px solid grey"
                 }}>
                     <div>
-                        <img style={{display:"block",maxWidth:"160px",maxHeight:"160px",width:"auto",height:"auto",borderRadius:"80px"}}
+                        <img style={{display:"block",maxWidth:"160px",maxHeight:"160px",width:"100%",height:"auto",borderRadius:"50%"}}
                         src={userProfile.user.pic}
                         />
                     </div>
