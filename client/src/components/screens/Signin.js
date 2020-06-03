@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState, useContext, useEffect } from "react";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { UserContext } from "../../App";
 import M from "materialize-css";
 const Signin = () => {
@@ -7,6 +7,10 @@ const Signin = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const history = useHistory();
+  let location = useLocation();
+  if (location.pathname === "/signin" && state) {
+    history.replace("/");
+  }
   const PostData = () => {
     if (
       !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(

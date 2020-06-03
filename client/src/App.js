@@ -1,7 +1,13 @@
 import React, { useEffect, createContext, useReducer, useContext } from "react";
 import NavBar from "./components/Navbar";
 import "./App.css";
-import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  useHistory,
+  useLocation,
+} from "react-router-dom";
 import Home from "./components/screens/Home";
 import Signin from "./components/screens/Signin";
 import Signup from "./components/screens/Signup";
@@ -14,7 +20,6 @@ import Newpassword from "./components/screens/Newpassword";
 import { reducer, initialState } from "./reducers/userReducer";
 import ScrollTopArrow from "./components/screens/ScrollTopArrow";
 export const UserContext = createContext();
-
 const Routing = () => {
   const history = useHistory();
   const { state, dispatch } = useContext(UserContext);
@@ -33,6 +38,7 @@ const Routing = () => {
         <Home />
         <ScrollTopArrow />
       </Route>
+
       <Route path="/signin">
         <Signin />
       </Route>
@@ -50,6 +56,7 @@ const Routing = () => {
       </Route>
       <Route path="/myfollowingpost">
         <SubscribesUserPosts />
+        <ScrollTopArrow />
       </Route>
       <Route exact path="/reset">
         <Reset />

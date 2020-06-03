@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useHistory, useLocation } from "react-router-dom";
+import { UserContext } from "../../App";
 import M from "materialize-css";
 const Signup = () => {
+  const { state, dispatch } = useContext(UserContext);
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [image, setImage] = useState("");
   const [url, setUrl] = useState(undefined);
   const history = useHistory();
+  let location = useLocation();
+  if (location.pathname === "/signup" && state) {
+    history.replace("/");
+  }
   useEffect(() => {
     if (url) {
       uploadFields();
