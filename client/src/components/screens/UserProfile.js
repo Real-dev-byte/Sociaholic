@@ -152,19 +152,19 @@ const Profile = () => {
             }}
           >
             <h6>
-              <div style={{ position: "relative", left: "15px" }}>
+              <div style={{ textAlign: "center" }}>
                 {userProfile.posts.length}
               </div>{" "}
               posts
             </h6>
             <h6>
-              <div style={{ position: "relative", left: "15px" }}>
+              <div style={{ textAlign: "center" }}>
                 {userProfile.user.followers.length}
               </div>{" "}
               followers
             </h6>
             <h6>
-              <div style={{ position: "relative", left: "15px" }}>
+              <div style={{ textAlign: "center" }}>
                 {userProfile.user.following.length}
               </div>{" "}
               following
