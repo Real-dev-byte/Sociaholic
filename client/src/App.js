@@ -19,10 +19,12 @@ import Reset from "./components/screens/Reset";
 import Newpassword from "./components/screens/Newpassword";
 import { reducer, initialState } from "./reducers/userReducer";
 import ScrollTopArrow from "./components/screens/ScrollTopArrow";
+
 export const UserContext = createContext();
 const Routing = () => {
   const history = useHistory();
   const { state, dispatch } = useContext(UserContext);
+  
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
@@ -31,6 +33,7 @@ const Routing = () => {
       if (!history.location.pathname.startsWith("/reset"))
         history.push("/signin");
     }
+    
   }, []);
   return (
     <Switch>
@@ -47,12 +50,14 @@ const Routing = () => {
       </Route>
       <Route exact path="/profile">
         <Profile />
+        <ScrollTopArrow />
       </Route>
       <Route path="/create">
         <CreatePost />
       </Route>
       <Route path="/profile/:userid">
         <UserProfile />
+        <ScrollTopArrow />
       </Route>
       <Route path="/myfollowingpost">
         <SubscribesUserPosts />

@@ -69,7 +69,7 @@ const Home = () => {
         console.log(err);
       });
   };
-  //makeCommen
+  
   const makeComment = (text, postId) => {
     fetch("/comment", {
       method: "put",

@@ -46,7 +46,7 @@ router.post("/signup", (req, res) => {
               to: user.email,
               from: "ponifa5556@2go-mail.com",
               subject: "Signup Success",
-              html: "<h1>Welcome to instagram</h1>",
+              html: "<h1>Welcome to Sociaholic.You have succesfully signed up for Sociaholic</h1>",
             });
           })
           .catch((error) => {

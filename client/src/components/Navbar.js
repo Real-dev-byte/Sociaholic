@@ -170,7 +170,7 @@ const NavBar = () => {
       return [
         <li style={{ marginLeft: "20px" }}>
           <h2>
-            <Link to={state ? "/" : "/signin"}>Instagram</Link>
+            <Link to={state ? "/" : "/signin"}>Sociaholic</Link>
           </h2>
         </li>,
         <li>
@@ -221,7 +221,7 @@ const NavBar = () => {
             className="brand-logo left"
             style={{ marginLeft: "10px" }}
           >
-            Instagram
+            Sociaholic
           </Link>
           <a
             href="#"
